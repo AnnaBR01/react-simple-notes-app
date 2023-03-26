@@ -1,0 +1,48 @@
+@import "../../../index.scss";
+
+.tag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 40px 10px 30px;
+  border-radius: 100px;
+  background-color: $yellow;
+  color: $secondary;
+  cursor: pointer;
+
+  &:active {
+    color: $primary;
+  }
+
+  &:hover {
+    box-shadow: inset 0px 5px 10px 0px $secondary;
+  }
+}
+
+.activeTag {
+  padding: 5px 25px 5px 15px;
+  background-color: $white;
+  color: $primary;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 3px;
+  right: 20px;
+  font-size: 14px;
+  color: $secondary;
+  opacity: 0.3;
+}
+
+.activeClose {
+  position: absolute;
+  top: 2.5px;
+  right: 5px;
+  color: $secondary;
+  opacity: 0.5;
+}

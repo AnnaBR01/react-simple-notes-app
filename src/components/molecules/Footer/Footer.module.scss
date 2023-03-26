@@ -4,6 +4,7 @@
   position: sticky;
   bottom: 0;
   padding-block: 30px;
+  background-color: $white;
 
   @include tablet {
     padding-block: 20px;

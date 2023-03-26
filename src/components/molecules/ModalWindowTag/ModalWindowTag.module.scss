@@ -1,0 +1,18 @@
+@import "../../../index.scss";
+
+.modalWindow {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: $dark;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  background: #f9f9fa;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: $dark;
+}

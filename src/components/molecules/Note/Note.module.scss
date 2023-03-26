@@ -1,0 +1,55 @@
+@import "../../../index.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+  padding: 20px;
+  background-color: $lightBlue;
+  cursor: pointer;
+
+  @include tablet {
+  }
+
+  @include mobile {
+    padding: 10px;
+  }
+
+  &:hover {
+    background: $blue;
+    transition: all 0.5s;
+  }
+}
+
+.noteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 5px;
+  color: $secondary;
+}
+
+.description {
+  color: $secondary;
+}
+
+.tagsWrapper {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 7px 3px;
+}
