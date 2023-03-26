@@ -1,0 +1,21 @@
+@import "../../../index.scss";
+
+.plus {
+  width: 40px;
+  height: 40px;
+  background: $lightGray;
+  background-image: url(../../../assets/icons/plus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+
+  &:hover {
+    box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
+  }
+
+  @include mobile {
+    width: 35px;
+    height: 35px;
+    background-image: url(../../../assets/icons/plus-small.svg);
+  }
+}

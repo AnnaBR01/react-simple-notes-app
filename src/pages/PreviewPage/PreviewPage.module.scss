@@ -1,0 +1,23 @@
+@import "../../index.scss";
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  background-color: $lightBlue;
+}
+
+.content {
+  height: 100vh;
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 200px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+
+  @include mobile {
+    padding: 200px 50px;
+    gap: 40px;
+  }
+}
