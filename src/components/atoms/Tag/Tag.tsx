@@ -1,7 +1,6 @@
 import classNames from "classnames";
 
 import styles from "./Tag.module.scss";
-import { ITag } from "../../../types/types";
 
 interface IProps {
   tagName: string;

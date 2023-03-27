@@ -7,6 +7,7 @@ export interface INotesContext {
   deleteTagFromNote: (idNote: string, idTag: string) => void;
   deleteTagFromAllNotes: (idTag: string) => void;
   deleteNote: (id: string) => void;
+  changeNote: (note: INote) => void;
 }
 
 export interface INotesProviderProps {

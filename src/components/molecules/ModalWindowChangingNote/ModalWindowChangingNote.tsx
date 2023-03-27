@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 
-import styles from "./ModalWindowNote.module.scss";
+import styles from "./ModalWindowChangingNote.module.scss";
 import { ITag } from "../../../types/types";
 
 import { ModalOuter } from "../../atoms/ModalOuter/ModalOuter";
@@ -15,11 +15,11 @@ interface IProps {
   onChangeArea: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   valueTitle: string;
   valueArea: string;
-  addItem?: () => void;
+  saveItem?: () => void;
   newTags: [] | ITag[];
 }
 
-export const ModalWindowNote = ({ closeModal, onChangeTitle, valueTitle, addItem, onChangeArea, valueArea, newTags }: IProps) => {
+export const ModalWindowChangingNote = ({ closeModal, onChangeTitle, valueTitle, saveItem, valueArea, onChangeArea, newTags }: IProps) => {
   const light = useCallback(
     (str: string) =>
       newTags.map((el) => {
@@ -29,7 +29,7 @@ export const ModalWindowNote = ({ closeModal, onChangeTitle, valueTitle, addItem
   );
 
   return (
-    <ModalOuter closeModal={closeModal} addItem={addItem}>
+    <ModalOuter closeModal={closeModal} addItem={saveItem} changingType={true}>
       <div className={styles.modalWindow}>
         <h3 className={styles.title}>Title</h3>
         <input type="text" value={valueTitle} onChange={onChangeTitle} className={styles.input} placeholder="add title..." />

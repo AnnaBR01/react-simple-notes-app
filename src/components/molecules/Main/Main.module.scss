@@ -56,3 +56,21 @@
   line-height: 39px;
   color: $secondary;
 }
+
+.allNotes {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  border-radius: 100px;
+  background-color: $blue;
+  color: $secondary;
+  cursor: pointer;
+
+  &:active {
+    color: $primary;
+  }
+
+  &:hover {
+    box-shadow: inset 0px 5px 10px 0px $secondary;
+  }
+}

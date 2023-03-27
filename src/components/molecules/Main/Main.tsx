@@ -1,18 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable indent */
 import { ChangeEvent, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./Main.module.scss";
 import { useTagsContext } from "../../../context/TagsContext/hooks";
 import { useNotesContext } from "../../../context/NotesContext/hooks";
+import { INote } from "../../../types/types";
 
 import { Tag } from "../../atoms/Tag/Tag";
 import { Plus } from "../../atoms/Plus/Plus";
 import { Note } from "../Note/Note";
 import { Error } from "../../atoms/Error/Error";
 import { ModalWindowTag } from "../ModalWindowTag/ModalWindowTag";
-import { INote } from "../../../types/types";
 
 export const Main = () => {
   const { tags, deleteTag, addNewTag } = useTagsContext();
@@ -64,10 +62,7 @@ export const Main = () => {
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
-
-    if (renderedNotes.length !== notes.length) {
-      toggleRenderedNotes(notes);
-    }
+    toggleRenderedNotes(notes);
   }, [notes]);
 
   return (
@@ -98,6 +93,16 @@ export const Main = () => {
             />
           );
         })}
+
+        <button
+          className={styles.allNotes}
+          onClick={() => {
+            toggleRenderedNotes(notes);
+          }}
+        >
+          All notes
+        </button>
+
         <Plus
           onClick={() => {
             toggleIsOpenModalTag(true);

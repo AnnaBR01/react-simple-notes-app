@@ -1,9 +1,17 @@
+import { ChangeEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { useNotesContext } from "../../../context/NotesContext/hooks";
-import { INote } from "../../../types/types";
-import { Tag } from "../../atoms/Tag/Tag";
+
 import styles from "./Note.module.scss";
+import { INote, ITag } from "../../../types/types";
+import { useTagsContext } from "../../../context/TagsContext/hooks";
+import { useNotesContext } from "../../../context/NotesContext/hooks";
+import { useDebounce } from "../../../hooks/useDebounce";
+import { checkTags } from "../../../utils/checkTags";
+import { checkTagsInTagsContent } from "../../../utils/checkTagsInTagsContent";
+
+import { Tag } from "../../atoms/Tag/Tag";
+import { ModalWindowChangingNote } from "../ModalWindowChangingNote/ModalWindowChangingNote";
+import { Error } from "../../atoms/Error/Error";
 
 const notesVariants = {
   visible: (index: number) => ({
@@ -20,12 +28,49 @@ interface IProps {
 }
 
 export const Note = ({ noteElement, index }: IProps) => {
-  const { deleteTagFromNote, deleteNote } = useNotesContext();
+  const { deleteTagFromNote, deleteNote, changeNote } = useNotesContext();
+  const { addNewTagsByNote, tags } = useTagsContext();
   const { noteName, noteDescription, noteTags, id } = noteElement;
+  const [error, setError] = useState(false);
   const [isOpen, toggleIsOpen] = useState(false);
+  const [isOpenModal, toggleIsOpenModal] = useState(false);
+  const [titleValue, setTitleValue] = useState(noteName);
+  const [areaValue, setAreaValue] = useState(noteDescription);
+  const [newTags, setNewTags] = useState<[] | ITag[]>(noteTags);
+  const debounceValue = useDebounce(areaValue);
 
   const deleteTag = (tagId: string) => {
     deleteTagFromNote(id, tagId);
+  };
+
+  const closeModal = () => {
+    toggleIsOpenModal(false);
+  };
+
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>): void => {
+    setTitleValue(event.target.value);
+  };
+
+  const onChangeArea = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    setAreaValue(event.target.value);
+  };
+
+  useEffect(() => {
+    const changedTags = checkTags(debounceValue, tags);
+    setNewTags(changedTags);
+  }, [debounceValue, tags]);
+
+  const handlelNote = () => {
+    if (titleValue) {
+      changeNote({ id, noteName: titleValue, noteDescription: debounceValue, noteTags: newTags });
+      if (newTags.length > 0) {
+        addNewTagsByNote(checkTagsInTagsContent(tags, newTags));
+      }
+
+      toggleIsOpenModal(false);
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -42,7 +87,13 @@ export const Note = ({ noteElement, index }: IProps) => {
           ...
           {isOpen && (
             <div className={styles.infoContainer}>
-              <div>Edit</div>
+              <div
+                onClick={() => {
+                  toggleIsOpenModal(true);
+                }}
+              >
+                Edit...
+              </div>
               <div
                 onClick={() => {
                   deleteNote(id);
@@ -70,6 +121,27 @@ export const Note = ({ noteElement, index }: IProps) => {
           );
         })}
       </div>
+
+      {isOpenModal && (
+        <ModalWindowChangingNote
+          closeModal={closeModal}
+          valueTitle={titleValue}
+          onChangeTitle={onChangeTitle}
+          saveItem={handlelNote}
+          valueArea={areaValue}
+          onChangeArea={onChangeArea}
+          newTags={newTags}
+        />
+      )}
+
+      {error && (
+        <Error
+          toggleIsOpenError={() => {
+            setError(false);
+          }}
+          title="Enter title!"
+        />
+      )}
     </motion.div>
   );
 };

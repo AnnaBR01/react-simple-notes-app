@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 import { NotesContextProvider } from "../NotesContext/NotesContext";
-
 import { TagsContextProvider } from "../TagsContext/TagsContext";
 
 const providers = [TagsContextProvider, NotesContextProvider];

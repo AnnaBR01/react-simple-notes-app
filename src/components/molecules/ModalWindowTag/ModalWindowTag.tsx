@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import styles from "./ModalWindowTag.module.scss";
 
 import { ModalOuter } from "../../atoms/ModalOuter/ModalOuter";

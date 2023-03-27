@@ -3,6 +3,8 @@ import { ChangeEvent, useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { useDebounce } from "../../../hooks/useDebounce";
 import { checkTags } from "../../../utils/checkTags";
+import { ITag } from "../../../types/types";
+import { checkTagsInTagsContent } from "../../../utils/checkTagsInTagsContent";
 import { useNotesContext } from "../../../context/NotesContext/hooks";
 import { useTagsContext } from "../../../context/TagsContext/hooks";
 
@@ -10,8 +12,6 @@ import { Title } from "../../atoms/Title/Title";
 import { Plus } from "../../atoms/Plus/Plus";
 import { Error } from "../../atoms/Error/Error";
 import { ModalWindowNote } from "../ModalWindowNote/ModalWindowNote";
-import { ITag } from "../../../types/types";
-import { checkTagsInTagsContent } from "../../../utils/checkTagsInTagsContent";
 
 export const Header = () => {
   const { addNewNote } = useNotesContext();

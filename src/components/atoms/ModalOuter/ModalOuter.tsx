@@ -7,9 +7,10 @@ interface IProps {
   children: ReactNode;
   closeModal: () => void;
   addItem?: () => void;
+  changingType?: boolean;
 }
 
-export const ModalOuter = ({ children, closeModal, addItem }: IProps) => {
+export const ModalOuter = ({ children, closeModal, addItem, changingType }: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref, () => {
@@ -24,7 +25,7 @@ export const ModalOuter = ({ children, closeModal, addItem }: IProps) => {
             Cancel
           </button>
           <button type="button" className={styles.add} onClick={addItem}>
-            Add
+            {changingType ? "Save" : "Add"}
           </button>
         </div>
 
