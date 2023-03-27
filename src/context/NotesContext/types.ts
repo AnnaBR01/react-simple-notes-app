@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+
 import { INote, ITag } from "../../types/types";
 
 export interface INotesContext {

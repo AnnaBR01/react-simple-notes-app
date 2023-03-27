@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 import styles from "./ModalWindowTag.module.scss";
 
-import { ModalOuter } from "../../atoms/ModalOuter/ModalOuter";
+import { ModalOuter } from "../../";
 
 interface IProps {
   closeModal: () => void;

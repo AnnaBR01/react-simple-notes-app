@@ -13,7 +13,13 @@ export const Error = ({ title, toggleIsOpenError }: IProps) => {
   }, 3000);
 
   return (
-    <motion.div className={styles.error} animate={{ y: 50 }} initial={{ y: -100 }} exit={{ y: -100 }} transition={{ duration: 1 }}>
+    <motion.div
+      className={styles.error}
+      animate={{ y: 50 }}
+      initial={{ y: -100 }}
+      exit={{ y: -100 }}
+      transition={{ duration: 1 }}
+    >
       {title}
     </motion.div>
   );

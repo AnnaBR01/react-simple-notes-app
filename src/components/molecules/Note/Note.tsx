@@ -3,15 +3,11 @@ import { motion } from "framer-motion";
 
 import styles from "./Note.module.scss";
 import { INote, ITag } from "../../../types/types";
-import { useTagsContext } from "../../../context/TagsContext/hooks";
-import { useNotesContext } from "../../../context/NotesContext/hooks";
-import { useDebounce } from "../../../hooks/useDebounce";
-import { checkTags } from "../../../utils/checkTags";
-import { checkTagsInTagsContent } from "../../../utils/checkTagsInTagsContent";
+import { useTagsContext, useNotesContext } from "../../../context";
+import { useDebounce } from "../../../hooks";
+import { checkTags, checkTagsInTagsContent } from "../../../utils";
 
-import { Tag } from "../../atoms/Tag/Tag";
-import { ModalWindowChangingNote } from "../ModalWindowChangingNote/ModalWindowChangingNote";
-import { Error } from "../../atoms/Error/Error";
+import { Tag, ModalWindowChangingNote, Error } from "../../";
 
 const notesVariants = {
   visible: (index: number) => ({

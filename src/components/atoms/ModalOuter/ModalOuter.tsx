@@ -1,7 +1,7 @@
 import { ReactNode, useRef } from "react";
 
 import styles from "./ModalOuter.module.scss";
-import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
+import { useOnClickOutside } from "../../../hooks";
 
 interface IProps {
   children: ReactNode;

@@ -1,17 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
 import styles from "./Header.module.scss";
-import { useDebounce } from "../../../hooks/useDebounce";
-import { checkTags } from "../../../utils/checkTags";
+import { useDebounce } from "../../../hooks";
+import { checkTags, checkTagsInTagsContent } from "../../../utils";
 import { ITag } from "../../../types/types";
-import { checkTagsInTagsContent } from "../../../utils/checkTagsInTagsContent";
-import { useNotesContext } from "../../../context/NotesContext/hooks";
-import { useTagsContext } from "../../../context/TagsContext/hooks";
+import { useNotesContext, useTagsContext } from "../../../context";
 
-import { Title } from "../../atoms/Title/Title";
-import { Plus } from "../../atoms/Plus/Plus";
-import { Error } from "../../atoms/Error/Error";
-import { ModalWindowNote } from "../ModalWindowNote/ModalWindowNote";
+import { Title, Plus, Error, ModalWindowNote } from "../../";
 
 export const Header = () => {
   const { addNewNote } = useNotesContext();

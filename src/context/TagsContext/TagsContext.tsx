@@ -1,7 +1,7 @@
 import { createContext, FC, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { ITag } from "../../types/types";
 
+import { ITag } from "../../types/types";
 import { ITagsContext, ITagsProviderProps } from "./types";
 
 export const TagsContext = createContext<ITagsContext>({} as ITagsContext);
@@ -9,8 +9,8 @@ export const TagsContext = createContext<ITagsContext>({} as ITagsContext);
 const initialTags = [
   { id: uuidv4(), tagName: "Work" },
   { id: uuidv4(), tagName: "Shop" },
-  { id: uuidv4(), tagName: "Party-Party" },
-  { id: uuidv4(), tagName: "Shop-Shop" },
+  { id: uuidv4(), tagName: "Learning" },
+  { id: uuidv4(), tagName: "Games" },
   { id: uuidv4(), tagName: "Party" },
 ];
 

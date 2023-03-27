@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import "./index.scss";
+import { AppContextProvider } from "./context";
 
 import App from "./App";
-import { AppContextProvider } from "./context/AppContextProvider/AppContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

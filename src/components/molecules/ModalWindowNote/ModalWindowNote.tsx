@@ -5,9 +5,7 @@ import classNames from "classnames";
 import styles from "./ModalWindowNote.module.scss";
 import { ITag } from "../../../types/types";
 
-import { ModalOuter } from "../../atoms/ModalOuter/ModalOuter";
-import { Tag } from "../../atoms/Tag/Tag";
-import { Hightlight } from "../../atoms/Hightlight/Hightlight";
+import { ModalOuter, Tag, Hightlight } from "../../";
 
 interface IProps {
   closeModal: () => void;
@@ -39,7 +37,12 @@ export const ModalWindowNote = ({ closeModal, onChangeTitle, valueTitle, addItem
         <h3 className={classNames(styles.title, styles.position)}>
           Description <p className={styles.text}>{light(valueArea)}</p>
         </h3>
-        <textarea className={classNames(styles.input, styles.area)} value={valueArea} placeholder="add description..." onChange={onChangeArea} />
+        <textarea
+          className={classNames(styles.input, styles.area)}
+          value={valueArea}
+          placeholder="add description..."
+          onChange={onChangeArea}
+        />
       </div>
 
       <div className={styles.tagsWrapper}>

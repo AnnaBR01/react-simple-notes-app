@@ -5,7 +5,7 @@
     "no-console": "warn",
     "prefer-const": "error",
     "indent": ["warn", 2, { "SwitchCase": 1 }],
-    "max-len": ["error", { "code": 150 }],
+    "max-len": ["error", { "code": 130 }],
     "semi": ["warn", "always"]
   }
 }

@@ -1,9 +1,8 @@
 import React, { createContext, FC, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { INote, ITag } from "../../types/types";
-import { deleteTagFromAllNotes } from "../../utils/deleteTagFromAllNotes";
-import { deleteTagFromNote } from "../../utils/deleteTagFromNote";
 
+import { INote, ITag } from "../../types/types";
+import { deleteTagFromAllNotes, deleteTagFromNote } from "../../utils";
 import { INotesContext, INotesProviderProps } from "./types";
 
 export const NotesContext = createContext<INotesContext>({} as INotesContext);
@@ -55,7 +54,6 @@ const UseContextNotes = () => {
       setNotesContext((ctx) => ({
         ...ctx,
         notes: ctx.notes.map((currentNote) => {
-          console.log(note);
           return currentNote.id === note.id ? { ...note } : currentNote;
         }),
       }));

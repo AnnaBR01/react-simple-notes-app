@@ -1,5 +1,5 @@
 import styles from "./Footer.module.scss";
-import { useWindowSize } from "../../../hooks/useWindowSize";
+import { useWindowSize } from "../../../hooks";
 
 import { LogoIcon } from "../../../assets";
 

@@ -1,8 +1,6 @@
 import styles from "./NotesPage.module.scss";
 
-import { Footer } from "../../components/molecules/Footer/Footer";
-import { Header } from "../../components/molecules/Header/Header";
-import { Main } from "../../components/molecules/Main/Main";
+import { Footer, Header, Main } from "../../components";
 
 export const NotesPage = () => {
   return (

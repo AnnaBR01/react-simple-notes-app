@@ -2,15 +2,10 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./Main.module.scss";
-import { useTagsContext } from "../../../context/TagsContext/hooks";
-import { useNotesContext } from "../../../context/NotesContext/hooks";
+import { useTagsContext, useNotesContext } from "../../../context";
 import { INote } from "../../../types/types";
 
-import { Tag } from "../../atoms/Tag/Tag";
-import { Plus } from "../../atoms/Plus/Plus";
-import { Note } from "../Note/Note";
-import { Error } from "../../atoms/Error/Error";
-import { ModalWindowTag } from "../ModalWindowTag/ModalWindowTag";
+import { Tag, Plus, Note, Error, ModalWindowTag } from "../../";
 
 export const Main = () => {
   const { tags, deleteTag, addNewTag } = useTagsContext();

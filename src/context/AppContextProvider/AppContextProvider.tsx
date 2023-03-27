@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
-import { NotesContextProvider } from "../NotesContext/NotesContext";
-import { TagsContextProvider } from "../TagsContext/TagsContext";
+import { NotesContextProvider, TagsContextProvider } from "..";
 
 const providers = [TagsContextProvider, NotesContextProvider];
 export const AppContextProvider: FC<{ children: ReactNode }> = ({ children }) => {

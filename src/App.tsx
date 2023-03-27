@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useToggle } from "./hooks/useToggle";
-import { NotesPage } from "./pages/NotesPage/NotesPage";
-import { PreviewPage } from "./pages/PreviewPage/PreviewPage";
+
+import { useToggle } from "./hooks";
+
+import { NotesPage, PreviewPage } from "./pages";
 
 function App() {
   const [isOpen, toggleIsOpen] = useToggle(true);

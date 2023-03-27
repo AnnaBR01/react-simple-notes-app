@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 import styles from "./PreviewPage.module.scss";
-import { useWindowSize } from "../../hooks/useWindowSize";
+import { useWindowSize } from "../../hooks";
 
 import { LogoIcon } from "../../assets";
-import { Title } from "../../components/atoms/Title/Title";
+import { Title } from "../../components";
 
 const welcomeBox = {
   initial: {},
@@ -38,12 +38,7 @@ export const PreviewPage = () => {
   const { width = 0 } = useWindowSize();
 
   return (
-    <motion.div
-      className={styles.wrapper}
-      initial="initial"
-      animate="animate"
-      variants={welcomeBox}
-    >
+    <motion.div className={styles.wrapper} initial="initial" animate="animate" variants={welcomeBox}>
       <motion.div className={styles.content} initial="initial" animate="animate" variants={content}>
         <Title />
         <LogoIcon width={width < 768 ? 200 : 900} />
