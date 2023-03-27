@@ -1,6 +1,4 @@
 <img src="images/title.png" alt="Logo">
-<img src="images/desktop.png" alt="Desktop">
-<img src="images/mobile.png" alt="Mobile">
 
 # Getting Started with Create React App
 
