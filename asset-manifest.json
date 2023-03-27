@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-simple-notes-app/static/css/main.d103fe0f.css",
+    "main.js": "/react-simple-notes-app/static/js/main.1e8a5e72.js",
+    "static/media/logo-icon.svg": "/react-simple-notes-app/static/media/logo-icon.e4387416232c9040b1814e1ad83bfb0c.svg",
+    "index.html": "/react-simple-notes-app/index.html",
+    "static/media/plus-small.svg": "/react-simple-notes-app/static/media/plus-small.14856060966bfe1a23d2.svg",
+    "static/media/plus.svg": "/react-simple-notes-app/static/media/plus.213947254c00875648dd.svg",
+    "main.d103fe0f.css.map": "/react-simple-notes-app/static/css/main.d103fe0f.css.map",
+    "main.1e8a5e72.js.map": "/react-simple-notes-app/static/js/main.1e8a5e72.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d103fe0f.css",
+    "static/js/main.1e8a5e72.js"
+  ]
+}
