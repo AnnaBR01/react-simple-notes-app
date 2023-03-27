@@ -1,3 +1,7 @@
+<img src="images/title.png" alt="Logo">
+<img src="images/desktop.png" alt="Desktop">
+<img src="images/mobile.png" alt="Mobile">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
