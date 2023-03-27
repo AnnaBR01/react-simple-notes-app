@@ -3,14 +3,5 @@
 .footerWrapper {
   position: sticky;
   bottom: 0;
-  padding-block: 30px;
   background-color: $white;
-
-  @include tablet {
-    padding-block: 20px;
-  }
-
-  @include mobile {
-    padding-block: 15px;
-  }
 }

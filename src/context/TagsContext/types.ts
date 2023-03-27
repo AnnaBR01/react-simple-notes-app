@@ -3,8 +3,9 @@ import { ITag } from "../../types/types";
 
 export interface ITagsContext {
   tags: ITag[] | [];
-  addNewTag: (tagName: string) => void;
+  addNewTag: (newTag: ITag) => void;
   deleteTag: (id: string) => void;
+  addNewTagsByNote: (newTags: ITag[]) => void;
 }
 
 export interface ITagsProviderProps {

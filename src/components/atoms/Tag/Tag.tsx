@@ -4,25 +4,27 @@ import styles from "./Tag.module.scss";
 import { ITag } from "../../../types/types";
 
 interface IProps {
-  tagElement: ITag;
+  tagName: string;
   active?: boolean;
+  modal?: boolean;
   onClick?: () => void;
+  filterNotes?: () => void;
 }
 
-export const Tag = ({ tagElement, active = false, onClick }: IProps) => {
+export const Tag = ({ tagName, active = false, onClick, modal = false, filterNotes }: IProps) => {
   return (
     <button
-      className={classNames(styles.tag, { [styles.activeTag]: active })}
+      className={classNames(styles.tag, { [styles.activeTag]: active, [styles.modal]: modal })}
       disabled={active}
       type="button"
+      onClick={filterNotes}
     >
-      {tagElement.tagName}
-      <span
-        className={classNames(styles.close, { [styles.activeClose]: active })}
-        onClick={onClick}
-      >
-        ✖
-      </span>
+      {tagName}
+      {!modal && (
+        <span className={classNames(styles.close, { [styles.activeClose]: active })} onClick={onClick}>
+          ✖
+        </span>
+      )}
     </button>
   );
 };

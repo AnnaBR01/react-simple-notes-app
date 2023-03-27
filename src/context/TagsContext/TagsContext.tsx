@@ -1,5 +1,6 @@
-import React, { createContext, FC, useState } from "react";
+import { createContext, FC, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { ITag } from "../../types/types";
 
 import { ITagsContext, ITagsProviderProps } from "./types";
 
@@ -9,7 +10,6 @@ const initialTags = [
   { id: uuidv4(), tagName: "Work" },
   { id: uuidv4(), tagName: "Shop" },
   { id: uuidv4(), tagName: "Party-Party" },
-  { id: uuidv4(), tagName: "Work" },
   { id: uuidv4(), tagName: "Shop-Shop" },
   { id: uuidv4(), tagName: "Party" },
 ];
@@ -22,16 +22,23 @@ const checkTagsInLocalStorage = () => {
 const UseContextTags = () => {
   const [tagsContext, setTagsContext] = useState<ITagsContext>({
     tags: checkTagsInLocalStorage(),
-    addNewTag: (tagName: string) =>
+    addNewTag: (newTag: ITag) =>
       setTagsContext((ctx) => ({
         ...ctx,
-        tags: [...ctx.tags, { tagName, id: uuidv4() }],
+        tags: [...ctx.tags, newTag],
       })),
 
     deleteTag: (id: string) => {
       setTagsContext((ctx) => ({
         ...ctx,
         tags: ctx.tags.filter((currentTag) => id !== currentTag.id),
+      }));
+    },
+
+    addNewTagsByNote: (newTags: ITag[]) => {
+      setTagsContext((ctx) => ({
+        ...ctx,
+        tags: [...ctx.tags, ...newTags],
       }));
     },
   });

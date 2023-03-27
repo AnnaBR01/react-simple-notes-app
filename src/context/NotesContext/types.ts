@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
-import { INote } from "../../types/types";
+import { INote, ITag } from "../../types/types";
 
 export interface INotesContext {
   notes: INote[] | [];
+  addNewNote: (noteName: string, noteDescription: string, newTags: [] | ITag[]) => void;
   deleteTagFromNote: (idNote: string, idTag: string) => void;
   deleteTagFromAllNotes: (idTag: string) => void;
+  deleteNote: (id: string) => void;
 }
 
 export interface INotesProviderProps {

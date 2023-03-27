@@ -15,13 +15,7 @@ export const ModalWindowTag = ({ closeModal, onChange, value, addItem }: IProps)
     <ModalOuter closeModal={closeModal} addItem={addItem}>
       <div className={styles.modalWindow}>
         <h3 className={styles.title}>Title</h3>
-        <input
-          type="text"
-          value={value}
-          onChange={onChange}
-          className={styles.input}
-          placeholder="add the tag..."
-        />
+        <input type="text" value={value} onChange={onChange} className={styles.input} placeholder="add tag..." />
       </div>
     </ModalOuter>
   );

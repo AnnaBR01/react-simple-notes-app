@@ -7,5 +7,5 @@ export interface INote {
   id: string;
   noteName: string;
   noteDescription: string;
-  noteTags: ITag[];
+  noteTags: ITag[] | [];
 }

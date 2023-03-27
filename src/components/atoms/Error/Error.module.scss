@@ -1,0 +1,22 @@
+@use "sass:math";
+@import "../../../index.scss";
+
+.error {
+  position: fixed;
+  top: 50px;
+  left: calc((100% - 528px) / 2);
+  z-index: 3;
+  max-width: 528px;
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lightRed;
+  border: 1.5px solid $red;
+
+  @include mobile {
+    left: calc((100% - 300px) / 2);
+    max-width: 300px;
+  }
+}

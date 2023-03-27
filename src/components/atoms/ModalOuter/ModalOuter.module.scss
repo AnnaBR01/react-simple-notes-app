@@ -42,7 +42,7 @@
 }
 
 .close {
-  color: $dark;
+  color: $secondary;
 
   &:hover {
     color: $primary;
@@ -52,11 +52,11 @@
 .add {
   padding: 5px 40px;
   border-radius: 10px;
-  background-color: $dark;
+  background-color: $secondary;
   color: white;
 
   &:hover {
-    background-color: $secondary;
+    background-color: $gray;
     color: $primary;
   }
 }
