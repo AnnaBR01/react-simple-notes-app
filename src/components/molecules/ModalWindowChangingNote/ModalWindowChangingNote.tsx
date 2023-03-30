@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
@@ -26,12 +27,13 @@ export const ModalWindowChangingNote = ({
   onChangeArea,
   newTags,
 }: IProps) => {
-  const light = useCallback(
-    (str: string) =>
-      newTags.map((el) => {
-        return <Hightlight filter={"#" + el.tagName} str={str} key={uuidv4()} />;
-      }),
-    [newTags],
+  const getTagsName = useCallback(
+    (tags: ITag[]) => {
+      return tags.map((el) => {
+        return el.tagName;
+      });
+    },
+    [newTags, valueArea],
   );
 
   return (
@@ -43,7 +45,10 @@ export const ModalWindowChangingNote = ({
 
       <div className={styles.modalWindow}>
         <h3 className={classNames(styles.title, styles.position)}>
-          Description <p className={styles.text}>{light(valueArea)}</p>
+          Description
+          <p className={styles.text}>
+            <Hightlight text={valueArea} tagsNameArr={getTagsName(newTags)} />
+          </p>
         </h3>
         <textarea
           className={classNames(styles.input, styles.area)}

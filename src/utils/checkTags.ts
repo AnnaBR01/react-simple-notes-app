@@ -24,7 +24,7 @@ export const checkTags = (str: string, tags: ITag[]) => {
     return result;
   };
 
-  str.split(" ").forEach((word) => {
+  Array.from(new Set(str.split(" "))).forEach((word) => {
     if (word[0] === "#") {
       const newTag = word.substring(1);
       if (!!newTag && !newArrNames.includes(newTag)) {
